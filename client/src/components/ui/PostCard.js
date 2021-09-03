@@ -5,10 +5,12 @@ import { Link } from "react-router-dom";
 
 import { AuthContext } from "../../context/auth";
 import classes from "./PostCard.module.css";
-import apiBaseUrl from "../../config";
 import useHttp from "../../hooks/use-http";
 
 const PostCard = (props) => {
+
+  const apiBaseUrl = process.env.REACT_APP_APIBASEURL;
+  
   const url = `${apiBaseUrl}/posts/${props.id}/likes`;
 
   const [hasLiked, setHasLiked] = useState(false);

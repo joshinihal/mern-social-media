@@ -2,11 +2,11 @@ import { useState, useContext } from "react";
 import { Form, Button } from "semantic-ui-react";
 
 import classes from "./Login.module.css";
-import apiBaseUrl from "../../config";
 import useHttp from "../../hooks/use-http";
 import { AuthContext } from "../../context/auth";
 
 function Login(props) {
+  const apiBaseUrl = process.env.REACT_APP_APIBASEURL;
   const url = `${apiBaseUrl}/auth`;
   const context = useContext(AuthContext);
   const { sendRequest: loginUser, error, isLoading } = useHttp();

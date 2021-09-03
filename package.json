@@ -4,10 +4,13 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "node index.js",
+    "build": "cd client && npm run build",
     "server": "nodemon index.js",
     "client": "npm start --prefix client",
-    "dev": "concurrently \"nodemon index\" \"npm run client\""
+    "dev": "concurrently \"nodemon index\" \"npm run client\"",
+    "heroku-postbuild": "cd client && npm install && npm run build",
+    "develop": "concurrently --kill-others-on-fail \"npm run server\" \"npm run start --prefix client\"",
+    "start": "concurrently --kill-others-on-fail \"npm run server\" \"npm run start --prefix client\""
   },
   "keywords": [],
   "author": "",
@@ -17,6 +20,7 @@
     "bcryptjs": "^2.4.3",
     "concurrently": "^6.2.1",
     "cors": "^2.8.5",
+    "dotenv": "^10.0.0",
     "express": "^4.17.1",
     "jsonwebtoken": "^8.5.1",
     "moment": "^2.29.1",

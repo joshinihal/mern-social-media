@@ -3,13 +3,13 @@ import { Item, Grid, Button, Icon } from "semantic-ui-react";
 import moment from "moment";
 import { Link } from "react-router-dom";
 
-import apiBaseUrl from "../../config";
 import useHttp from "../../hooks/use-http";
 import Comments from "../ui/Comments";
 import { AuthContext } from "../../context/auth";
 import classes from "./SinglePost.module.css";
 
 const SinglePost = (props) => {
+  const apiBaseUrl = process.env.REACT_APP_APIBASEURL;
   const postId = props.match.params.post_id;
   const url = `${apiBaseUrl}/posts/${postId}`;
   const [post, setPost] = useState({});

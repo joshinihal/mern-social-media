@@ -2,11 +2,11 @@ import { useState, useContext } from "react";
 import { Form, Button } from "semantic-ui-react";
 
 import classes from "./Register.module.css";
-import apiBaseUrl from "../../config";
 import useHttp from "../../hooks/use-http";
 import { AuthContext } from "../../context/auth";
 
 function Register(props) {
+  const apiBaseUrl = process.env.REACT_APP_APIBASEURL;
   const url = `${apiBaseUrl}/users`;
   const context = useContext(AuthContext);
   const { sendRequest: registerUser, error, isLoading } = useHttp();

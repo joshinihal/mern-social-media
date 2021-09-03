@@ -1,6 +1,5 @@
 import { useEffect, useState, useContext } from "react";
 
-import apiBaseUrl from "../../config";
 import useHttp from "../../hooks/use-http";
 import PostCard from "../ui/PostCard";
 import classes from "./Home.module.css";
@@ -8,6 +7,8 @@ import PostForm from "../ui/PostForm";
 import { AuthContext } from "../../context/auth";
 
 const Home = () => {
+  const apiBaseUrl = process.env.REACT_APP_APIBASEURL;
+  console.log('base url is ', apiBaseUrl)
   const context = useContext(AuthContext);
   const url = `${apiBaseUrl}/posts`;
   const [postItems, setPostItems] = useState([]);

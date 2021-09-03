@@ -1,14 +1,18 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import { Button, Comment, Form, Header } from "semantic-ui-react";
 import moment from "moment";
+import { Link } from "react-router-dom";
 
-import apiBaseUrl from "../../config";
+import { AuthContext } from "../../context/auth";
 import useHttp from "../../hooks/use-http";
 
 const Comments = (props) => {
+  const apiBaseUrl = process.env.REACT_APP_APIBASEURL;
   const postId = props.postId;
 
   const url = `${apiBaseUrl}/posts/${postId}/comments`;
+
+  const context = useContext(AuthContext);
 
   const [values, setValues] = useState({
     body: "",
@@ -80,13 +84,24 @@ const Comments = (props) => {
         )}
 
         {!error && !isLoading ? (
-          <Button
-            type="submit"
-            content="Add Comment"
-            labelPosition="left"
-            icon="comments"
-            color="violet"
-          />
+          context.user ? (
+            <Button
+              type="submit"
+              content="Add Comment"
+              labelPosition="left"
+              icon="comments"
+              color="violet"
+            />
+          ) : (
+            <Button
+              as={Link}
+              to={`/login`}
+              content="Add Comment"
+              labelPosition="left"
+              icon="comments"
+              color="violet"
+            />
+          )
         ) : (
           ""
         )}

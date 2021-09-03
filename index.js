@@ -1,8 +1,8 @@
 const mongoose = require("mongoose");
 const express = require("express");
 const cors = require('cors')
-
-const { MONGODB } = require("./config.js");
+require("dotenv").config();
+const MONGODB = process.env.MONGODB;
 const apiRoutes = require("./api-routes");
 
 const app = express();
@@ -27,6 +27,12 @@ mongoose
   });
 
 app.use('/api', apiRoutes);
+
+const path = require("path");
+app.use(express.static(path.resolve(__dirname, './client/build')))
+app.get("*", function (request, response) {
+  response.sendFile(path.resolve(__dirname, "./client/build", "index.html"));
+});
 
 app.get('/', async (req, res) => {
     res.send('Hello!')

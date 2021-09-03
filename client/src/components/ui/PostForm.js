@@ -2,10 +2,10 @@ import { useState } from "react";
 import { Form, Button } from "semantic-ui-react";
 
 import classes from "./PostForm.module.css";
-import apiBaseUrl from "../../config";
 import useHttp from "../../hooks/use-http";
 
 const PostForm = (props) => {
+  const apiBaseUrl = process.env.REACT_APP_APIBASEURL;
   const url = `${apiBaseUrl}/posts`;
 
   const [values, setValues] = useState({

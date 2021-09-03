@@ -6,7 +6,6 @@ const MONGODB = process.env.MONGODB;
 const apiRoutes = require("./api-routes");
 
 const app = express();
-const PORT = process.env.PORT || 5000;
 
 // configure to handle post requests
 app.use(express.urlencoded({
@@ -20,10 +19,10 @@ mongoose
   .connect(MONGODB, { useNewUrlParser: true })
   .then(() => {
     console.log('Mongo connected!');
-    return app.listen({ port: PORT });
+    return app.listen({ port: process.env.PORT || 5000 });
   })
   .then((res) => {
-    console.log(`App listening at ${PORT}`);
+    console.log(`App listening at ${process.env.PORT}`);
   });
 
 app.use('/api', apiRoutes);

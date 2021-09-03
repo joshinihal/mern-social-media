@@ -1,0 +1,16 @@
+.recent-posts{
+    text-align: center;
+}
+
+.posts-container{
+    padding-bottom: 3rem !important;
+}
+
+.error-message{
+    color: red;
+    text-align: center;
+}
+
+.loading-message{
+    text-align: center;
+}

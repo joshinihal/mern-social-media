@@ -42,6 +42,7 @@ const index = async (req, res) => {
   }
 };
 
+// register
 const create = async (req, res) => {
   // validate data
   try {
@@ -98,6 +99,7 @@ const create = async (req, res) => {
   }
 };
 
+// login
 const auth = async (req, res) => {
   // validate data
   try {

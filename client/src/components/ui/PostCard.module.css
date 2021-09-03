@@ -1,0 +1,27 @@
+.card{
+    margin: 2rem auto !important;
+    width: 30vw !important;
+    border: 1px solid purple !important;
+    min-height: 10rem !important;
+}
+
+.reaction{
+    /* font-size: 1.5em !important; */
+    cursor: pointer;
+}
+
+.reaction-div{
+    margin-left: 1rem !important;
+}
+
+.description{
+    display: block !important;
+    font-size: 1.8rem !important;
+    font-weight: 900 !important;
+    color: black !important;
+    cursor: pointer;
+}
+
+.date{
+    float: right;
+}

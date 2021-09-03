@@ -1,0 +1,18 @@
+.reactions-container{
+    display: grid;
+}
+
+.outer-container{
+    width: 30vw !important;
+    margin: 2rem auto !important;
+}
+
+.reaction{
+    /* font-size: 1.5em !important; */
+    cursor: pointer;
+}
+
+.post-body{
+    font-size: 1.5rem !important;
+    width: 25rem !important;
+}

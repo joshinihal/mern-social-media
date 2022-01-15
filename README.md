@@ -1,5 +1,7 @@
 # social media app using MERN stack
 
+Deployed on : https://social-media-react-node.herokuapp.com/
+
 Login, Logout, post, like and comment options.
 
 # Getting Started with the project
